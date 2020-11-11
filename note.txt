@@ -1,0 +1,32 @@
+TRONG JSX, HTML:
+- Dùng 'className' thay cho 'class'
+- Dùng 'htmlFor' thay cho 'for'
+
+LUU Y: JSX chi return ve dung 1 doi tuong duy nhat, nen gom het tat ca vo 1 div chung hoac dung <></> (react fragment) Ex:
+<>
+<p></p>
+<p></p>
+</>
+
+Dat duoi file:
+- Neu la component dat ten duoi file la .jsx
+- Neu la file js binh thuong dat ten duoi file la .js
+
+//Kieu du lieu
+- Boolean: True/false, null/undefined ko render truc tiep gia tri tren UI
+- Object cung ko render truc tiep, ma lay key value. EX: {student.name}
+
+Phim tat:
+- Xoa nhung cai du thua ko dung: Option + Shift + O
+
+
+{/* Kieu Boolean thi show binh thuong */}
+    {true && <p>Render</p>}
+    {false && <p>ko Render</p>}
+    {null && <p>null Render</p>}
+    {undefined && <p>undifined Render</p>}
+{/* Nhung kieu dac biet nhu ben duoi them phu dinh '!!' de ep kieu */}
+    {!!0 && <p>0 Render</p>}
+    {!!123 && <p>Number 123</p>}
+    {!!'' && <p>empty Render</p>}
+    {!!'Hello' && <p>string Render</p>}
