@@ -1,0 +1,30 @@
+src
+|_ api(API module)
+|_ app (Redux setup)
+|_ constants (Shared constants)
+|_ hooks (custom hooks)
+|_ components (shared components)
+|    |_Header
+|    |_Footer
+|    |_CustomFields (From Modules)
+|
+|_ features
+|    |_ Product
+|    |    |_ component
+|    |    |    |_ productList
+|    |    |    |_ product
+|    |    |
+|    |    |_ pages 
+|    |    |    |_ List.jsx
+|    |    |    |_ Detail.jsx
+|    |    |    |_ AddEdit.jsx
+|    |    |
+|    |    |_ index.jsx (ENTRY POINT)
+|    |
+|    |_ Cart
+|    |    |_ components
+|    |    |_ pages
+|    |    |_ index.jsx
+|    |
+|_ App.jsx
+|_ index.jsx    

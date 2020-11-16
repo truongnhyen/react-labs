@@ -1,0 +1,4 @@
+- Props: truyền từ thằng cha sang con
+    + Dữ liệu props được truyền từ thằng cha sang thằng con, và thằng con ko thể thay đổi được dữ liệu từ thằng cha 
+- State: 
+    + Mỗi component có state riêng của nó, và có thể thay đổi được
