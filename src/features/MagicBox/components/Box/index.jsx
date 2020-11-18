@@ -1,11 +1,20 @@
 import './Box.scss';
 import PropTypes from 'prop-types';
 
-function Box(props) {
-  const { color, luckyNumber } = props;
+//truyen gia tri object de style theo height
+const sizeMap = {
+  small: '20px',
+  medium: '60px',
+  large: '80px',
+};
+
+function Box({ boxProps }) {
+  const { color = 'black', luckyNumber, size = 'medium' } = boxProps;
+  const heightVal = sizeMap[size];
 
   return (
-    <div className="box" style={{ backgroundColor: color }}>
+    //hoac them class bang size value de thay doi css theo size
+    <div className={`box ${size}`} style={{ backgroundColor: color, height: heightVal }}>
       {luckyNumber}
     </div>
   );
@@ -13,14 +22,13 @@ function Box(props) {
 
 //Validate data
 Box.propTypes = {
-  color: PropTypes.string,
-  luckyNumber: PropTypes.number.isRequired,
+  boxProps: PropTypes.object,
 };
 
 /* Trong truong hop thang cha khong co gia tri, va khong required
 phai tao gia tri mac dinh:
 */
 Box.defaultProps = {
-  color: 'black',
+  boxProps: {},
 };
 export default Box;

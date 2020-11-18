@@ -1,4 +1,3 @@
-import Box from './components/Box';
 import BoxList from './components/BoxList';
 
 function MagicBoxFeature() {
@@ -11,14 +10,21 @@ function MagicBoxFeature() {
     {
       color: 'yellow',
       luckyNumber: 7,
+      size: 'small',
     },
     {
       color: 'lightblue',
       luckyNumber: 8,
+      size: 'medium',
     },
     {
       color: 'lightgreen',
       luckyNumber: 9,
+      size: 'large',
+    },
+    {
+      color: 'orange',
+      luckyNumber: 10,
     },
   ];
 
@@ -26,11 +32,7 @@ function MagicBoxFeature() {
     <div>
       <h2>Magic box feature</h2>
 
-      <BoxList boxList={boxList} />
-
-      <Box color="green" luckyNumber={11} />
-      <Box color={box.color} luckyNumber={box.luckyNumber} />
-      <Box luckyNumber={10} />
+      <BoxList data={boxList} />
     </div>
   );
 }

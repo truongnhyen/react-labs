@@ -1,21 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '../Box';
+import './BoxList.scss';
 
 BoxList.propTypes = {
-  boxList: PropTypes.array,
+  data: PropTypes.array,
 };
 
 BoxList.defaultProps = {
-  boxList: [],
+  data: [],
 };
 
-function BoxList({ boxList }) {
+function BoxList({ data }) {
   return (
     <ul className="box-list">
-      {boxList.map((box) => (
+      {data.map((box) => (
         <li key={box.luckyNumber}>
-          <Box color={box.color} luckyNumber={box.luckyNumber} />
+          <Box boxProps={box} />
         </li>
       ))}
     </ul>
