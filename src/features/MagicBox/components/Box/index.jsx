@@ -8,14 +8,19 @@ const sizeMap = {
   large: '80px',
 };
 
-function Box({ boxProps }) {
+function Box({ boxProps, onClick }) {
   const { color = 'black', luckyNumber, size = 'medium' } = boxProps;
   const heightVal = sizeMap[size];
+
+  const handleRemoveClick = () => {
+    if (onClick) onClick(boxProps);
+  };
 
   return (
     //hoac them class bang size value de thay doi css theo size
     <div className={`box ${size}`} style={{ backgroundColor: color, height: heightVal }}>
       {luckyNumber}
+      <button onClick={handleRemoveClick}>REMOVE</button>
     </div>
   );
 }
@@ -23,6 +28,7 @@ function Box({ boxProps }) {
 //Validate data
 Box.propTypes = {
   boxProps: PropTypes.object,
+  onClick: PropTypes.func,
 };
 
 /* Trong truong hop thang cha khong co gia tri, va khong required
@@ -30,5 +36,6 @@ phai tao gia tri mac dinh:
 */
 Box.defaultProps = {
   boxProps: {},
+  onClick: null,
 };
 export default Box;

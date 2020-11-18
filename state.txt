@@ -1,0 +1,10 @@
+Tat ca cac hooks bat dau bang 'use'. Ex: useState
+
+useState luon tra ve 2 phan tu:
++ Gia tri cua state 
++ Ham tra ve gia tri cua state
+
+
+Neu state moi phu thuoc vao state cu thi phai su dung callback
+
+Neu state la tham chieu, thi phai clone no ra de cap nhat gia tri moi
