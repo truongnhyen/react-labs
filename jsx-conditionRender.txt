@@ -16,9 +16,6 @@ Dat duoi file:
 - Boolean: True/false, null/undefined ko render truc tiep gia tri tren UI
 - Object cung ko render truc tiep, ma lay key value. EX: {student.name}
 
-Phim tat:
-- Xoa nhung cai du thua ko dung: Option + Shift + O
-
 
 {/* Kieu Boolean thi show binh thuong */}
     {true && <p>Render</p>}

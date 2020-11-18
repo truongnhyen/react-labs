@@ -2,3 +2,9 @@
     + Dữ liệu props được truyền từ thằng cha sang thằng con, và thằng con ko thể thay đổi được dữ liệu từ thằng cha 
 - State: 
     + Mỗi component có state riêng của nó, và có thể thay đổi được
+
+
+Composition: Cung la 1 component nhung render khac nhau
+
+Cai Proptype de kiem tra du lieu (Validate):
+- yarn add prop-types / npm install prop-types
