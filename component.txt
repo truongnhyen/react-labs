@@ -1,0 +1,18 @@
+Chia theo chức năng component: container & Presentational component(UI component)
+- Container: xử lý dữ liệu nhưng ko biết render
+*Những cách gọi khác:
+    + Smart component
+    + Page component
+- Component: chỉ render dữ liệu nhưng ko biết dữ liệu từ đâu
+*Những cách gọi khác:
+    + UI component
+    + Dumb component 
+
+
+Component Tree Example for Product Detail page:
+
+Page
+|_ Header (container) - vì có chứa dữ liệu đăng nhập của user
+|_ Product Slider (UI)
+|_ Product Info (UI)
+|_ Instagram block (container)

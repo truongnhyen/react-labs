@@ -1,0 +1,8 @@
+- Xoa nhung cai du thua ko dung: Option + Shift + O
+- Mo file trong thu muc hien tai: Command + P
+- Dong tat ca cua so: command + K + W
+- Chon tu tuong tu: command + D
+
+
+- Go 'rsfp' de ra tron bo syntax jsx
+-
