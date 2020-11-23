@@ -5,7 +5,7 @@ Counter.propTypes = {};
 
 function Counter(props) {
   const [count, setCount] = useState(0);
-  const [name, setName] = useState('');
+  // const [name, setName] = useState('');
 
   const handleDecreaseClick = () => {
     setCount((x) => x - 1);
