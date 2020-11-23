@@ -1,0 +1,7 @@
+SET UP REACTJS APP
+- Cai` node js ver > 10
+- Neu du an moi: npx create-react-app
+- Neu du an cu chua co node: npm install/yarn install
+- Start: npm start
+
+- Cai node sass: npm install node-sass@^4
