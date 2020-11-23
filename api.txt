@@ -1,0 +1,6 @@
+Khong can dung thu vien:
+- XHR
+- Fetch
+
+Interceptors: You can intercept requests or responses before they are handled by then or catch.
+
