@@ -1,80 +1,25 @@
-import { useEffect, useState } from 'react';
-import postApi from './api/postApi';
-import studentApi from './api/studentApi';
+import { Route, Switch } from 'react-router-dom';
 import './App.scss';
-import Button from './components/Button';
-import Counter from './components/Counter';
+import Header from './components/Header';
 import ColorBox from './features/ColorBox';
+import HomePage from './features/Home';
 import MagicBoxFeature from './features/MagicBox';
+import RenderingFeature from './features/Rendering';
 
 function App() {
-  const [loading, setLoading] = useState(true);
-  const [postList, setPostList] = useState([]);
-  // const [filter, setFilter] = useState({});
-
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await postApi.getAll({
-          _page: 1,
-          _limit: 10,
-        });
-
-        setPostList(data);
-      } catch (error) {
-        console.log('Failed to fetch post list', error);
-      }
-
-      setLoading(false);
-    })();
-  }, []);
-
-  const [loadingStudent, setLoadingStudent] = useState(true);
-  const [studentList, setStudentList] = useState([]);
-  useEffect(() => {
-    (async () => {
-      try {
-        const { data } = await studentApi.getAll({
-          _page: 1,
-          _limit: 10,
-        });
-
-        setStudentList(data);
-      } catch (error) {
-        console.log('Failed to fetch student list', error);
-      }
-
-      setLoadingStudent(false);
-    })();
-  }, []);
-
   return (
     <div>
-      {loading && <p>Loading ...</p>}
+      <Header />
 
-      <h2>Post List</h2>
-      <ul>
-        {postList.map((post) => (
-          <li key={post.id}>{post.title}</li>
-        ))}
-      </ul>
+      {/* Routing content */}
+      <Switch>
+        <Route exact path="/" component={HomePage} />
+        <Route path="/magic-box" component={MagicBoxFeature} />
+        <Route path="/rendering" component={RenderingFeature} />
+        <Route path="/color-box" component={ColorBox} />
+      </Switch>
 
-      {loadingStudent && <p>Loading ...</p>}
-      <h2>Student List</h2>
-      <ul>
-        {studentList.map((student) => (
-          <li key={student.id}>{student.name}</li>
-        ))}
-      </ul>
-
-      <Counter />
-
-      <MagicBoxFeature />
-
-      <Button>Hello</Button>
-      <Button onClick={() => alert('Hello')}>Click to show alert</Button>
-
-      <ColorBox />
+      <div style={{ textAlign: 'center' }}>Yen Truong</div>
     </div>
   );
 }
