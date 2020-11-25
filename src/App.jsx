@@ -4,6 +4,7 @@ import studentApi from './api/studentApi';
 import './App.scss';
 import Button from './components/Button';
 import Counter from './components/Counter';
+import ColorBox from './features/ColorBox';
 import MagicBoxFeature from './features/MagicBox';
 
 function App() {
@@ -72,6 +73,8 @@ function App() {
 
       <Button>Hello</Button>
       <Button onClick={() => alert('Hello')}>Click to show alert</Button>
+
+      <ColorBox />
     </div>
   );
 }
