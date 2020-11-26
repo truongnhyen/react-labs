@@ -7,5 +7,9 @@
 
 Composition: Cung la 1 component nhung render khac nhau
 
+Prop: Children
+- Dung prop children de goi du lieu ben trong giua the mo va the dong
+- Dung children khi muon tuy bien noi dung cua thang cha (dynamic)
+
 Cai Proptype de kiem tra du lieu (Validate):
 - yarn add prop-types / npm install prop-types

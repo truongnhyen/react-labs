@@ -1,0 +1,17 @@
+.color-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 200px;
+    height: 200px;
+
+    background-color: black;
+    color: #fff;
+
+    font-size: 20px;
+    font-weight: bold;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s all;
+}

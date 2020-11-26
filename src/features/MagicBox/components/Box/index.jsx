@@ -8,9 +8,9 @@ const sizeMap = {
   large: '80px',
 };
 
-function Box({ boxProps, onClick }) {
-  const { color = 'black', luckyNumber, size = 'medium' } = boxProps;
-  const heightVal = sizeMap[size];
+function Box({ boxProps, onClick, children }) {
+  const { color = 'black', size = 'medium' } = boxProps;
+  const height = sizeMap[size];
 
   const handleRemoveClick = () => {
     if (onClick) onClick(boxProps);
@@ -18,8 +18,9 @@ function Box({ boxProps, onClick }) {
 
   return (
     //hoac them class bang size value de thay doi css theo size
-    <div className={`box ${size}`} style={{ backgroundColor: color, height: heightVal }}>
-      {luckyNumber}
+    <div className={`box ${size}`} style={{ backgroundColor: color, height: height }}>
+      {/* {luckyNumber} */}
+      {children}
       <button onClick={handleRemoveClick}>REMOVE</button>
     </div>
   );

@@ -1,0 +1,22 @@
+- Cai: React Router Dom: yarn add react-router-dom
+
+- KEYWORDS: Router, Route, Switch, Link, NavLink, Redirect
+
+- Khong dung the <a> link noi bo trong reactjs, ma dung:
++ Link
++ NavLink: thuong dung cho menu, co them 'active' class
+
+- ROUTER: co nhieu loai, nhung thuong dung BrowserRouter
+
+SWITCH:
+- Neu khong co switch thi render het tat ca cac route duoc match
+- Neu co swicth, thi switch dam bao chi render thang dau tien duoc match
+
+
+ROUTE:
+- Neu co exact thi duong dan thang user di vao so voi path phai match 100%
+- Neu khong co exact thi duong dan user di vao phai match voi path la thoa
+
+
+LINK/NavLink:
+- Link: them 'replace' de khong cho user back lai trang
