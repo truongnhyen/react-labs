@@ -9,6 +9,7 @@ import MagicBoxFeature from './features/MagicBox';
 import RenderingFeature from './features/Rendering';
 import StudentFeature from './features/Student';
 import NotFound from './components/NotFound';
+import PostFeature from './features/Post';
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
         <Route path="/color-box" component={ColorBox} />
         <Route path="/todo-list" component={Todo} />
         <Route path="/students" component={StudentFeature} />
+        <Route path="/posts" component={PostFeature} />
         <Route component={NotFound} />
       </Switch>
 

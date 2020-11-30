@@ -1,9 +1,9 @@
-import Axios from 'axios';
 
 import axios from 'axios';
+import AppConstants from '../constant/appConstant';
 
 const axiosClient = axios.create({
-  baseURL: 'https://js-post-api.herokuapp.com/api',
+  baseURL: AppConstants.API_URL,
   headers: {
     'Content-Type': 'application/json',
   },

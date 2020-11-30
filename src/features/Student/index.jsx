@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch, useHistory, useLocation, useRouteMatch } from 'react-router-dom';
+import { Route, Switch, useRouteMatch } from 'react-router-dom';
 import StudentDetailPage from './pages/Detail';
 import StudentListPage from './pages/List';
 
