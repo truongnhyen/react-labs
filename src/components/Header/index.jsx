@@ -26,6 +26,9 @@ function Header(props) {
           <NavLink to="/todo-list">To Do List</NavLink>
         </li>
         <li>
+          <NavLink to="/students">Students</NavLink>
+        </li>
+        <li>
           <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">
             Go to Google
           </a>

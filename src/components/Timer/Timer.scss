@@ -1,0 +1,20 @@
+.timer {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    
+    margin: 20px;
+    width: 200px;
+    height: 200px;
+    border: 2px solid goldenrod;
+    border-radius: 5px;;
+
+    font-size: 30px;
+    font-weight: bold;
+    transition: .3s all;
+}
+
+.timer.finished {
+    background: goldenrod;
+    color: #fff;
+}

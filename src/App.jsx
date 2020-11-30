@@ -1,16 +1,22 @@
 import { Route, Switch } from 'react-router-dom';
 import './App.scss';
 import Header from './components/Header';
+import Timer from './components/Timer';
 import Todo from './components/Todo';
-import ColorBox from './features/ColorBox';
+import ColorBox from './components/ColorBox';
 import HomePage from './features/Home';
 import MagicBoxFeature from './features/MagicBox';
 import RenderingFeature from './features/Rendering';
+import StudentFeature from './features/Student';
+import NotFound from './components/NotFound';
 
 function App() {
   return (
     <div>
       <Header />
+      {/* <Timer seconds={60} />
+      <Timer seconds={10} />
+      <Timer seconds={40} /> */}
 
       {/* Routing content */}
       <Switch>
@@ -19,6 +25,8 @@ function App() {
         <Route path="/rendering" component={RenderingFeature} />
         <Route path="/color-box" component={ColorBox} />
         <Route path="/todo-list" component={Todo} />
+        <Route path="/students" component={StudentFeature} />
+        <Route component={NotFound} />
       </Switch>
 
       <div style={{ textAlign: 'center' }}>Yen Truong</div>

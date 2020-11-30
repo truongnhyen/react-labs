@@ -4,7 +4,7 @@ import studentApi from './api/studentApi';
 import './App.scss';
 import Button from './components/Button';
 import Counter from './components/Counter';
-import ColorBox from './features/ColorBox';
+import ColorBox from './components/ColorBox';
 import MagicBoxFeature from './features/MagicBox';
 
 function App() {
