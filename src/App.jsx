@@ -18,7 +18,7 @@ function App() {
       {/* <Timer seconds={60} />
       <Timer seconds={10} />
       <Timer seconds={40} /> */}
-
+  
       {/* Routing content */}
       <Switch>
         <Route exact path="/" component={HomePage} />
