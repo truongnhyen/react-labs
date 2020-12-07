@@ -1,0 +1,4 @@
+Life Cycle full version: Mounting, Updating, Unmounting
+Updating: 
++ component chi render lai khi va chi khi 1 trong 2 thang prop/state thay doi
++ Hạn chế dùng componentDidUpdate (vòng lặp vô tận)

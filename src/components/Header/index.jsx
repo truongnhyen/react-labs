@@ -1,42 +1,66 @@
+import { AppBar, Button, makeStyles, Toolbar } from '@material-ui/core';
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import './Header.scss';
 
 Header.propTypes = {};
-
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  title: {
+    flexGrow: 1,
+  },
+  link: {
+    marginRight: theme.spacing(2),
+    color: '#fff',
+    textDecoration: 'none',
+  },
+}));
 function Header(props) {
+  const classes = useStyles();
+
   return (
-    <div className="header">
-      <ul className="navigation">
-        <li>
-          <NavLink to="/" exact>
-            Home
+    <div className={classes.root}>
+      <AppBar position="static">
+        <Toolbar>
+          <NavLink className={`${classes.title} ${classes.link}`} to="/" exact>
+            <Button color="inherit">Home</Button>
           </NavLink>
-        </li>
-        <li>
-          <NavLink to="/magic-box">Magic Box</NavLink>
-        </li>
-        <li>
-          <NavLink to="/rendering">Rendering</NavLink>
-        </li>
-        <li>
-          <NavLink to="/color-box">Color Box</NavLink>
-        </li>
-        <li>
-          <NavLink to="/todo-list">To Do List</NavLink>
-        </li>
-        <li>
-          <NavLink to="/students">Students</NavLink>
-        </li>
-        <li>
-          <NavLink to="/posts">Posts</NavLink>
-        </li>
-        <li>
-          <a href="https://www.google.com/" target="_blank" rel="noopener noreferrer">
-            Go to Google
+
+          <NavLink className={classes.link} to="/magic-box">
+            <Button color="inherit">Magic Box</Button>
+          </NavLink>
+
+          <NavLink className={classes.link} to="/rendering">
+            <Button color="inherit">Rendering</Button>
+          </NavLink>
+
+          <NavLink className={classes.link} to="/color-box">
+            <Button color="inherit">Color Box</Button>
+          </NavLink>
+
+          <NavLink className={classes.link} to="/students">
+            <Button color="inherit">Students</Button>
+          </NavLink>
+
+          <NavLink className={classes.link} to="/posts">
+            <Button color="inherit">Posts</Button>
+          </NavLink>
+
+          <NavLink className={classes.link} to="/todos">
+            <Button color="inherit">Todos</Button>
+          </NavLink>
+          <a
+            className={classes.link}
+            href="https://www.google.com/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Button color="inherit">Go to Google</Button>
           </a>
-        </li>
-      </ul>
+        </Toolbar>
+      </AppBar>
     </div>
   );
 }
