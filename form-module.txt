@@ -1,0 +1,33 @@
+- Using:
+package: React Hook Form
+Form validation: Yup
+Helper: Validation Resolver
+Error Message: ErrorMessage
+
+
+npm install --save react-hook-form yup @hookform/resolvers @hookform/error-message
+
+yarn add react-hook-form yup @hookform/resolvers @hookform/error-message
+
+
+To chuc form:
+    Page/Container
+        |
+    Form Component
+    (handle form validations and triggrt callback on submit)
+        |
+    Form Fields (base controls)
+    Eg: InputField, PhotoField,...
+    A coordinator between form state and UI control
+        |
+    UI control
+    Eg: Input, checkboxm or a control from an external lib
+    A dump component which receives data from Form Field and render it accordingly     
+
+
+KHOI TAO GIA TRI:
+- defaultValues: khong dung undefined
+
+    + khi control co gia tri undefined thi se bien thanh uncontroled
+
+1 Cai field phai xu ly 4 thu: name, value, onChange, onBlur
