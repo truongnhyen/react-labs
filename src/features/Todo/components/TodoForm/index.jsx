@@ -4,6 +4,8 @@ import { useForm } from 'react-hook-form';
 import * as yup from 'yup';
 import { yupResolver } from '@hookform/resolvers/yup';
 import InputField from 'components/FormFields/InputField';
+import TextareaField from 'components/FormFields/TextareaField';
+import { Box, Button, Typography } from '@material-ui/core';
 
 TodoForm.propTypes = {
   initialValues: PropTypes.object,
@@ -12,26 +14,39 @@ TodoForm.propTypes = {
 TodoForm.defaultProps = {
   initialValues: {
     value: '',
+    description: '',
   },
 };
 
 function TodoForm({ initialValues, onSubmit }) {
   const schema = yup.object().shape({
-    value: yup.string().required('Field is required'),
+    value: yup
+      .string()
+      .required('Field is required')
+      .min(5, 'Should be at least 5 characters')
+      .test('Ten mo ta validate lam gi', 'Please enter at least 2 words', (value) => {
+        return value.split(' ').filter((x) => !!x).length >= 2;
+      }),
+    description: yup.string().when('value', {
+      is: 'yen', // alternatively: (val) => val == true
+      then: yup.string().required('Nhap di'),
+      otherwise: yup.string(),
+    }),
   });
 
   console.log({ initialValues });
 
   const form = useForm({
-    mode: 'onSubmit',
-    defaultValues: initialValues || { value: '' },
+    mode: 'onBlur',
+    defaultValues: initialValues || { value: '', description: '' },
     resolver: yupResolver(schema),
   });
 
+  //set form values whenever intitialValues changes
   const { setValue } = form;
-
   useEffect(() => {
     setValue('value', initialValues ? initialValues.value : '');
+    setValue('description', initialValues?.description || ''); //another way to write
   }, [initialValues, setValue]);
 
   const handleFormSubmit = (values) => {
@@ -45,7 +60,15 @@ function TodoForm({ initialValues, onSubmit }) {
 
   return (
     <form noValidate autoComplete="off" onSubmit={form.handleSubmit(handleFormSubmit)}>
-      <InputField name="value" label="Làm gì nè" form={form} />
+      <Typography component="h2" variant="h5">
+        Todo Form
+      </Typography>
+
+      <InputField name="value" label="Title" form={form} />
+      <TextareaField name="description" label="Description" form={form} />
+      <Button type="submit" variant="contained" color="primary">
+        Submit
+      </Button>
     </form>
   );
 }

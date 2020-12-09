@@ -1,4 +1,4 @@
-import { Container } from '@material-ui/core';
+import { Box, Container } from '@material-ui/core';
 import React, { useState } from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
@@ -7,9 +7,9 @@ TodoFeature.propTypes = {};
 
 function TodoFeature(props) {
   const [todoList, setTodoList] = useState([
-    { id: 1, value: 'Reading Book' },
-    { id: 2, value: 'Travelling' },
-    { id: 3, value: 'Saving Money' },
+    { id: 1, value: 'Reading Book', description: '' },
+    { id: 2, value: 'Travelling', description: '' },
+    { id: 3, value: 'Saving Money', description: '' },
   ]);
 
   const [selectedTodo, setSelectedTodo] = useState(null);
@@ -66,7 +66,7 @@ function TodoFeature(props) {
       // New item
       const newTodo = {
         id: new Date().getTime().toString(),
-        value: formValues.value,
+        ...formValues,
       };
 
       return [...currentList, newTodo];
@@ -74,8 +74,9 @@ function TodoFeature(props) {
   };
   return (
     <Container fixed>
-      <h2>Todo List</h2>
-      <TodoForm initialValues={selectedTodo} onSubmit={handleFormSubmit} />
+      <Box mt={4} mb={6}>
+        <TodoForm initialValues={selectedTodo} onSubmit={handleFormSubmit} />
+      </Box>
       <TodoList todos={todoList} onDelete={handleDeleteTodo} onEdit={handleEditTodo} />
     </Container>
   );
