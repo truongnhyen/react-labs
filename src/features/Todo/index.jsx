@@ -87,8 +87,8 @@ function TodoFeature(props) {
   };
   const filteredTodos =
     filters.completed === 'all'
-      ? todos
-      : todos.filter((x) => x.completed === filters.completed);
+      ? todoList
+      : todoList.filter((x) => x.completed === filters.completed);
   return (
     <Container fixed>
       <Box mt={4} mb={6}>
@@ -118,7 +118,7 @@ function TodoFeature(props) {
           </Button>
         </ButtonGroup>
       </Box>
-      <TodoList todos={filteredTodos} onDelete={handleDeleteTodo} onEdit={handleEditTodo} />
+      <TodoList totdos={filteredTodos} onDelete={handleDeleteTodo} onEdit={handleEditTodo} />
 
     </Container>
   );
