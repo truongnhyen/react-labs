@@ -31,3 +31,12 @@ KHOI TAO GIA TRI:
     + khi control co gia tri undefined thi se bien thanh uncontroled
 
 1 Cai field phai xu ly 4 thu: name, value, onChange, onBlur
+
+
+Validation: dung phuong thuc trong React Hook Form
+- onSubmit: de check validation khi submit form
+- onBlur: de check validation khi blur input
+
+Yup validation:
+- Dung ham .test de viet custom validation
+- Dung when de check validation dua tren thang khac

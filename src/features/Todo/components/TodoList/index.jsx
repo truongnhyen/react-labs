@@ -21,6 +21,7 @@ const useStyles = makeStyles(() => ({
   },
   item: {
     marginBottom: '20px',
+    padding: '0',
   },
   button: {
     margin: '0 5px',
@@ -36,9 +37,14 @@ function TodoList({ todos, onDelete, onEdit }) {
           <Card>
             <CardContent>
               <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Typography component="p" variant="body1">
-                  {todo.value}
-                </Typography>
+                <Box>
+                  <Typography component="p" variant="body1">
+                    {todo.value}
+                  </Typography>
+                  <Typography component="p" variant="body1">
+                    {todo.description}
+                  </Typography>
+                </Box>
                 <Box>
                   <Button
                     variant="contained"
