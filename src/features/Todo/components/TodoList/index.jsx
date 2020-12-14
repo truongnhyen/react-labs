@@ -38,7 +38,7 @@ function TodoList({ todos, onDelete, onEdit }) {
             <CardContent>
               <Box display="flex" justifyContent="space-between" alignItems="center">
                 <Box>
-                  <Typography component="p" variant="body1" style={{textDecoration: todo.completed ? 'line-through': 'none'}}>
+                <Typography component="p" variant="body1" style={{textDecoration: todo.completed ? 'line-through': 'none'}}>
                     {todo.value}
                   </Typography>
                   <Typography component="p" variant="body2">
