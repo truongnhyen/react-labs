@@ -87,8 +87,8 @@ function TodoFeature(props) {
   };
   const filteredTodos =
     filters.completed === 'all'
-      ? todoList
-      : todoList.filter((x) => x.completed === filters.completed);
+      ? todos
+      : todos.filter((x) => x.completed === filters.completed);
   return (
     <Container fixed>
       <Box mt={4} mb={6}>
