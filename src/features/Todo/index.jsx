@@ -118,7 +118,7 @@ function TodoFeature(props) {
           </Button>
         </ButtonGroup>
       </Box>
-      <TodoList totdos={filteredTodos} onDelete={handleDeleteTodo} onEdit={handleEditTodo} />
+      <TodoList todos={filteredTodos} onDelete={handleDeleteTodo} onEdit={handleEditTodo} />
 
     </Container>
   );
