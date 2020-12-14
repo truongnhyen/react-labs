@@ -1,22 +1,33 @@
-import React from 'react';
-import { Route, Switch, useRouteMatch } from 'react-router-dom';
-import StudentDetailPage from './pages/Detail';
-import StudentListPage from './pages/List';
-
-StudentFeature.propTypes = {};
+import studentApi from 'api/studentApi';
+import React, { useEffect, useState } from 'react';
+import { useRouteMatch } from 'react-router-dom';
+import StudentList from './components/StudentList';
 
 function StudentFeature(props) {
-  //using match.path de get Routing tu thang cha ben ngoai App, de tranh truong hop
-  // routing parent thay doi phai vo trong sub routing de doi
   const match = useRouteMatch();
+  const [filters, setFilters] = useState({
+    _page: 1,
+    _limit: 10,
+  });
+  const [studentList, setStudentList] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        const { data } = await studentApi.getAll(filters);
+        setStudentList(data);
+      } catch (error) {
+        console.log('Failed to fetch student list:', error);
+      }
+    })();
+  }, [filters]);
 
   return (
     <div>
-      <h2>Student Feature</h2>
-      <Switch>
-        <Route exact path={match.path} component={StudentListPage} />
-        <Route path={`${match.path}/:studentId`} component={StudentDetailPage} />
-      </Switch>
+      <h2>STUDENT FEATURE</h2>
+
+      <StudentList data={studentList} />
     </div>
   );
 }

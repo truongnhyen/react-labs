@@ -1,19 +1,32 @@
-import { Box, Container } from '@material-ui/core';
-import React, { useState } from 'react';
+import { Box, Button, ButtonGroup, Container } from '@material-ui/core';
+import React, { useEffect, useState } from 'react';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
 TodoFeature.propTypes = {};
 
 function TodoFeature(props) {
-  const [todoList, setTodoList] = useState([
-    { id: 1, value: 'Reading Book', description: '' },
-    { id: 2, value: 'Travelling', description: '' },
-    { id: 3, value: 'Saving Money', description: '' },
-  ]);
+  const [filters, setFilters] = useState({
+    completed: 'all',
+  });
+  const [todoList, setTodoList] = useState(() => {
+    try {
+      return JSON.parse(localStorage.getItem('todo_list')) || [];
+    } catch (error) {}
+
+    return [
+      { id: '1', value: 'Eat', description: 'Lorem ipsum dolor sit amet.', completed: false },
+      { id: '2', value: 'Code', description: 'Lorem ipsum dolor sit amet.', completed: false },
+      { id: '3', value: 'Sleep', description: 'Lorem ipsum dolor sit amet.', completed: false },
+  ];
+});
 
   const [selectedTodo, setSelectedTodo] = useState(null);
   // const [showForm, setShowForm] = useState(true);
+
+  useEffect(() => {
+    localStorage.setItem('todo_list', JSON.stringify(todoList));
+  }, [todoList]);
 
   function handleDeleteTodo(todo) {
     // const index = todoList.findIndex((x) => x.id === todo.id);
@@ -72,12 +85,41 @@ function TodoFeature(props) {
       return [...currentList, newTodo];
     });
   };
+  const filteredTodos =
+    filters.completed === 'all'
+      ? todoList
+      : todoList.filter((x) => x.completed === filters.completed);
   return (
     <Container fixed>
       <Box mt={4} mb={6}>
         <TodoForm initialValues={selectedTodo} onSubmit={handleFormSubmit} />
       </Box>
+      <Box textAlign="center">
+        <ButtonGroup color="primary" aria-label="outlined primary button group">
+          <Button
+            variant={filters.completed === 'all' ? 'contained' : 'outlined'}
+            onClick={() => setFilters({ completed: 'all' })}
+          >
+            All
+          </Button>
+
+          <Button
+            variant={filters.completed === true ? 'contained' : 'outlined'}
+            onClick={() => setFilters({ completed: true })}
+          >
+            Completed
+          </Button>
+
+          <Button
+            variant={filters.completed === false ? 'contained' : 'outlined'}
+            onClick={() => setFilters({ completed: false })}
+          >
+            Not Completed
+          </Button>
+        </ButtonGroup>
+      </Box>
       <TodoList todos={todoList} onDelete={handleDeleteTodo} onEdit={handleEditTodo} />
+
     </Container>
   );
 }

@@ -6,6 +6,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import InputField from 'components/FormFields/InputField';
 import TextareaField from 'components/FormFields/TextareaField';
 import { Box, Button, Typography } from '@material-ui/core';
+import CheckboxField from 'components/FormFields/CheckboxField';
 
 TodoForm.propTypes = {
   initialValues: PropTypes.object,
@@ -15,6 +16,7 @@ TodoForm.defaultProps = {
   initialValues: {
     value: '',
     description: '',
+    completed: false,
   },
 };
 
@@ -32,13 +34,14 @@ function TodoForm({ initialValues, onSubmit }) {
       then: yup.string().required('Nhap di'),
       otherwise: yup.string(),
     }),
+    completed: yup.boolean(),
   });
 
   console.log({ initialValues });
 
   const form = useForm({
     mode: 'onBlur',
-    defaultValues: initialValues || { value: '', description: '' },
+    defaultValues: initialValues || { value: '', description: '', completed: false },
     resolver: yupResolver(schema),
   });
 
@@ -47,6 +50,7 @@ function TodoForm({ initialValues, onSubmit }) {
   useEffect(() => {
     setValue('value', initialValues ? initialValues.value : '');
     setValue('description', initialValues?.description || ''); //another way to write
+    setValue('completed', initialValues?.completed || false);
   }, [initialValues, setValue]);
 
   const handleFormSubmit = (values) => {
@@ -66,6 +70,7 @@ function TodoForm({ initialValues, onSubmit }) {
 
       <InputField name="value" label="Title" form={form} />
       <TextareaField name="description" label="Description" form={form} />
+      <CheckboxField name="completed" label="I've completed this tast!" form={form}/>
       <Button type="submit" variant="contained" color="primary">
         Submit
       </Button>

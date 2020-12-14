@@ -44,6 +44,9 @@ function TodoList({ todos, onDelete, onEdit }) {
                   <Typography component="p" variant="body1">
                     {todo.description}
                   </Typography>
+                  <Typography component="p" variant="body1" style={{textDecoration: todo.completed ? 'line-through': 'none'}}>
+                    {todo.value}
+                  </Typography>
                 </Box>
                 <Box>
                   <Button
