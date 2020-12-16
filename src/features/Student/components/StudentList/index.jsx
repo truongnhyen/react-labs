@@ -1,7 +1,7 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { Box, Button, Card, CardContent, makeStyles, Typography } from '@material-ui/core';
 import { Delete, Edit } from '@material-ui/icons';
+import PropTypes from 'prop-types';
+import React from 'react';
 
 StudentList.propTypes = {
   data: PropTypes.array,

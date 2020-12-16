@@ -9,13 +9,15 @@ InputField.propTypes = {
 
   label: PropTypes.string,
   disabled: PropTypes.bool,
+  type: PropTypes.string,
 };
 InputField.defaultProps = {
   label: '',
   disabled: false,
+  type: 'text',
 };
 function InputField(props) {
-  const { name, form, label, disabled } = props;
+  const { name, form, label, disabled, type } = props;
   const { errors } = form;
   console.log({ errors });
   const errorMessage = errors[name]?.message;
@@ -27,6 +29,7 @@ function InputField(props) {
       {/* Controller luon truyen 3 thuoc tinh: name, control, as. Nhung thuoc tinh con lai la cua TextField */}
       <Controller
         name={name}
+        type={type}
         control={form.control}
         as={TextField}
         label={label}

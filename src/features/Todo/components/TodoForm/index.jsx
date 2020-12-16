@@ -70,7 +70,7 @@ function TodoForm({ initialValues, onSubmit }) {
 
       <InputField name="value" label="Title" form={form} />
       <TextareaField name="description" label="Description" form={form} />
-      <CheckboxField name="completed" label="I've completed this tast!" form={form}/>
+      <CheckboxField name="completed" label="I've completed this tast!" form={form} />
       <Button type="submit" variant="contained" color="primary">
         Submit
       </Button>

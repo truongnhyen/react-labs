@@ -18,8 +18,8 @@ function TodoFeature(props) {
       { id: '1', value: 'Eat', description: 'Lorem ipsum dolor sit amet.', completed: false },
       { id: '2', value: 'Code', description: 'Lorem ipsum dolor sit amet.', completed: false },
       { id: '3', value: 'Sleep', description: 'Lorem ipsum dolor sit amet.', completed: false },
-  ];
-});
+    ];
+  });
 
   const [selectedTodo, setSelectedTodo] = useState(null);
   // const [showForm, setShowForm] = useState(true);
@@ -87,8 +87,8 @@ function TodoFeature(props) {
   };
   const filteredTodos =
     filters.completed === 'all'
-      ? todos
-      : todos.filter((x) => x.completed === filters.completed);
+      ? todoList
+      : todoList.filter((x) => x.completed === filters.completed);
   return (
     <Container fixed>
       <Box mt={4} mb={6}>
@@ -119,7 +119,6 @@ function TodoFeature(props) {
         </ButtonGroup>
       </Box>
       <TodoList todos={filteredTodos} onDelete={handleDeleteTodo} onEdit={handleEditTodo} />
-
     </Container>
   );
 }
