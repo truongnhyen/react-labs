@@ -1,6 +1,7 @@
 import { AppBar, Button, makeStyles, Toolbar } from '@material-ui/core';
-import React from 'react';
+import React, { useContext } from 'react';
 import { NavLink } from 'react-router-dom';
+import ThemeContext, { themes } from 'themeContext';
 import './Header.scss';
 
 Header.propTypes = {};
@@ -19,6 +20,12 @@ const useStyles = makeStyles((theme) => ({
 }));
 function Header(props) {
   const classes = useStyles();
+
+  const { setCurrentTheme } = useContext(ThemeContext);
+
+  const handleToggleCllick = () => {
+    setCurrentTheme((theme) => (theme.name === 'light' ? themes.dark : themes.light));
+  };
 
   return (
     <div className={classes.root}>
@@ -59,6 +66,9 @@ function Header(props) {
           >
             <Button color="inherit">Go to Google</Button>
           </a>
+          <Button color="inherit" onClick={handleToggleCllick}>
+            Toggle Theme
+          </Button>
         </Toolbar>
       </AppBar>
     </div>

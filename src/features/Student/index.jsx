@@ -1,8 +1,9 @@
 import { Button, Container, Dialog, DialogContent, LinearProgress } from '@material-ui/core';
 import { Add } from '@material-ui/icons';
 import studentApi from 'api/studentApi';
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useRouteMatch } from 'react-router-dom';
+import ThemeContext from 'themeContext';
 import StudentForm from './components/StudentForm';
 import StudentList from './components/StudentList';
 
@@ -22,6 +23,10 @@ function StudentFeature(props) {
   const [open, setOpen] = useState(false);
   //set state cho edit student
   const [selectedStudent, setSelectedStudent] = useState(null);
+
+  //use Context
+  const { currentTheme: theme } = useContext(ThemeContext); //lay key currentTheme de gan bien cho theme
+  console.log({ theme });
 
   const handleClose = () => {
     setOpen(false);
@@ -110,7 +115,7 @@ function StudentFeature(props) {
     }
   };
   return (
-    <div>
+    <div style={{ backgroundColor: theme.primaryColor }}>
       <Container fixed>
         <h2>STUDENT FEATURE</h2>
         <Button variant="contained" color="primary" startIcon={<Add />} onClick={handleAddClick}>

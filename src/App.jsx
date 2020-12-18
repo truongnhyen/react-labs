@@ -11,29 +11,35 @@ import StudentFeature from './features/Student';
 import NotFound from './components/NotFound';
 import PostFeature from './features/Post';
 import TodoFeature from './features/Todo';
+import ThemeContext, { themes } from 'themeContext';
+import { useState } from 'react';
 
 function App() {
+  const [currentTheme, setCurrentTheme] = useState(themes.light);
+  const value = { currentTheme, setCurrentTheme };
   return (
     <div>
-      <Header />
-      {/* <Timer seconds={60} />
+      <ThemeContext.Provider value={value}>
+        <Header />
+        {/* <Timer seconds={60} />
       <Timer seconds={10} />
       <Timer seconds={40} /> */}
 
-      {/* Routing content */}
-      <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/magic-box" component={MagicBoxFeature} />
-        <Route path="/rendering" component={RenderingFeature} />
-        <Route path="/color-box" component={ColorBox} />
-        <Route path="/todos" component={TodoFeature} />
-        <Route path="/todo-list" component={Todo} />
-        <Route path="/students" component={StudentFeature} />
-        <Route path="/posts" component={PostFeature} />
-        <Route component={NotFound} />
-      </Switch>
+        {/* Routing content */}
+        <Switch>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/magic-box" component={MagicBoxFeature} />
+          <Route path="/rendering" component={RenderingFeature} />
+          <Route path="/color-box" component={ColorBox} />
+          <Route path="/todos" component={TodoFeature} />
+          <Route path="/todo-list" component={Todo} />
+          <Route path="/students" component={StudentFeature} />
+          <Route path="/posts" component={PostFeature} />
+          <Route component={NotFound} />
+        </Switch>
 
-      <div style={{ textAlign: 'center' }}>Yen Truong</div>
+        <div style={{ textAlign: 'center' }}>Yen Truong</div>
+      </ThemeContext.Provider>
     </div>
   );
 }
