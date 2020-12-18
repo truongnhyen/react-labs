@@ -36,26 +36,35 @@ function StudentList({ data, onRemove, onEdit }) {
           <Card>
             <CardContent>
               <Box display="flex" justifyContent="space-between" alignItems="center">
-                <Box flex="1 1 auto">
-                  <Typography
-                    component="p"
-                    variant="body1"
-                    style={{ textDecoration: student.completed ? 'line-through' : 'none' }}
-                  >
-                    {student.name}
-                  </Typography>
+                <Box flex="1 1 auto" display="flex">
+                  <Box mr={2}>
+                    <Box component="img" src={student.avatar}></Box>
+                  </Box>
+                  <Box>
+                    <Typography
+                      component="p"
+                      variant="body1"
+                      style={{ textDecoration: student.completed ? 'line-through' : 'none' }}
+                    >
+                      {student.name}
+                    </Typography>
 
-                  <Typography component="p" variant="body2">
-                    Gender: {student.gender}
-                  </Typography>
+                    <Typography component="p" variant="body2">
+                      Gender: {student.gender}
+                    </Typography>
 
-                  <Typography component="p" variant="body2">
-                    City: {student.city}
-                  </Typography>
+                    <Typography component="p" variant="body2">
+                      City: {student.city}
+                    </Typography>
 
-                  <Typography component="p" variant="body2">
-                    Age: {student.age}
-                  </Typography>
+                    <Typography component="p" variant="body2">
+                      Age: {student.age}
+                    </Typography>
+
+                    <Typography component="p" variant="body2">
+                      Level: {student.level}
+                    </Typography>
+                  </Box>
                 </Box>
 
                 <Box mr={1}>

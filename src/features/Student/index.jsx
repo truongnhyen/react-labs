@@ -43,8 +43,10 @@ function StudentFeature(props) {
     //setSelectedStudent(student);
     // set gia tri cho field de tranh bi loi trong truong hop khong co data
     setSelectedStudent({
-      gender: '',
+      gender: 'male',
       city: '',
+      level: 'junior',
+      avatar: '',
       ...student,
     });
     setOpen(true);
@@ -115,7 +117,7 @@ function StudentFeature(props) {
           Add new student
         </Button>
         <StudentList data={studentList} onEdit={handleEditClick} onRemove={handleRemoveClick} />
-        <Dialog open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
+        <Dialog fullWidth open={open} onClose={handleClose} aria-labelledby="form-dialog-title">
           {submitting && <LinearProgress />}
           <DialogContent>
             <StudentForm initialValues={selectedStudent} onSubmit={handleSubmit} />
