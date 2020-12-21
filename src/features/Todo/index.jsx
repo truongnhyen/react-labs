@@ -1,11 +1,30 @@
 import { Box, Button, ButtonGroup, Container } from '@material-ui/core';
 import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { addTodo } from './actions';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
 TodoFeature.propTypes = {};
 
 function TodoFeature(props) {
+  //Connect to redux store
+
+  //Trong do:
+  //state.todos: state gốc có tên là todos
+  //list là state cần query tới
+  const todos = useSelector((state) => state.todos.list);
+  const totosFilters = useSelector((state) => state.todos.filters);
+  console.log({ todos, totosFilters });
+
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    const action = addTodo({ id: 2, title: 'Traveling' });
+    dispatch(action);
+  }, [dispatch]);
+  //------------------------
+
   const [filters, setFilters] = useState({
     completed: 'all',
   });

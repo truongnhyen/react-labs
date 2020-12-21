@@ -7,4 +7,4 @@ useState luon tra ve 2 phan tu:
 
 Neu state moi phu thuoc vao state cu thi phai su dung callback
 
-Neu state la tham chieu, thi phai clone no ra de cap nhat gia tri moi
+Neu state la tham chieu: object & array, thi phai clone no ra de cap nhat gia tri moi

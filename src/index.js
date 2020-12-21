@@ -5,13 +5,18 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import { createStore } from 'redux';
+import { Provider } from 'react-redux';
+import store from 'app/store';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter>
-      <CssBaseline />
-      <App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <CssBaseline />
+        <App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
@@ -20,3 +25,64 @@ ReactDOM.render(
 // to log results (for example: reportWebVitals(console.log))
 // or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();
+
+// TODO: remove after testing
+
+//setup reducer
+// const initialState = {
+//   list: [{ id: 1, title: 'Learning' }],
+//   filters: {},
+// };
+// const todoReducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case 'todo/add': {
+//       const newList = [...state.list];
+//       newList.push(action.payload);
+//       return {
+//         //return kieu du lieu dua vao kieu du lieu cua state ban dau
+//         ...state,
+//         list: newList,
+//       };
+//     }
+
+//     case 'todo/remove': {
+//       return {
+//         ...state,
+//         list: state.list.filter((x) => x.id !== action.payload),
+//       };
+//     }
+
+//     default:
+//       return state;
+//   }
+// };
+// //setup store
+// const store = createStore(todoReducer);
+// console.log('Init store successfully', store.getState());
+
+// //khi state thay doi se goi toi ham nay
+// store.subscribe(() => console.log(store.getState())); // lay gia tri state hien tai cua store
+
+// const addTodo = (newTodo) => ({
+//   type: 'todo/add',
+//   payload: newTodo,
+// });
+// //Fake dispatching actions
+// const addAction = addTodo({
+//   id: 2,
+//   title: 'Traveling',
+// });
+// store.dispatch(addAction);
+
+// store.dispatch({
+//   type: 'todo/add',
+//   payload: {
+//     id: 3,
+//     title: 'Reading',
+//   },
+// });
+
+// store.dispatch({
+//   type: 'todo/remove',
+//   payload: 2,
+// });

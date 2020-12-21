@@ -1,0 +1,36 @@
+- Redux la thu vien js de quan ly State
+- Duoc dung khi chia se state giua cac trang khac nhau (Global state)
+- Han che dung Redux vi Golbal state cang nhe thi app cang nhanh
+
+* React Context API: 
+- la feature cua REACTJS, co san trong code, same with Redux nhung khac' co che
+- Dung trong truong hop: project chua dung redux, project don gian, vi setup de va don gian
+    + Provider: Cung cap gia tri
+    + Consumer: dung gia tri tu provider
+- Han che: de~ trigger renderer
+
+
+
+* Redux:
+- Dung trong truong hop project phuc tap
+- Neu trong App da co Redux thi ko can dung toi Context API
+
++ Keywords: Store, State, Action, Reducer, dispatch
+Uni directional dataflow: State -> Action (object it nhat 2 key: type (kieu du lieu string), payload (bat ki kieu du lieu)) -> Store -> Reducer(function) -> New State
+    - Action: object
+    - Reducer: function
+
++ Action di doi voi Reducer
+
+-- REDUX CORE CU~:
++ Moi feature dung redux co 2 file: reducer.js va actions.js
+    . file action ko phai la noi chua action ma la file chua action creator
+
+
+* react-redux
+- La thu vien cau noi cho redux va component
+- Chi nen connect redux toi Container thay vi UI component
+- Bao gom: Provider, userSelector, useDispatch
+    + Setup Provider o main index app: truyen vao 1 cai store la store da tao
+
+* Redux Persist: luu state vao local storage
