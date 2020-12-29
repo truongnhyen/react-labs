@@ -33,8 +33,20 @@ function StudentFeature(props) {
   console.log({ theme });
 
   useEffect(() => {
-    const action = getStudentList(filters);
-    dispatch(action);
+    (async () => {
+      try {
+        console.log('Start loading');
+        setLoading(true);
+
+        const action = getStudentList(filters);
+        await dispatch(action);
+
+        setLoading(false);
+        console.log('End loading');
+      } catch (error) {
+        console.log('Failed to fetch student list 123456', error);
+      }
+    })();
   }, [dispatch, filters]);
 
   const handleClose = () => {
