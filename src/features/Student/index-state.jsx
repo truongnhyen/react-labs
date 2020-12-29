@@ -2,17 +2,12 @@ import { Button, Container, Dialog, DialogContent, LinearProgress } from '@mater
 import { Add } from '@material-ui/icons';
 import studentApi from 'api/studentApi';
 import React, { useContext, useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useRouteMatch } from 'react-router-dom';
 import ThemeContext from 'themeContext';
 import StudentForm from './components/StudentForm';
 import StudentList from './components/StudentList';
-import { getStudentList } from './actions.js';
 
 function StudentFeature(props) {
-  const studentList1 = useSelector((state) => state.students.list);
-  const dispatch = useDispatch();
-  console.log('student list redux', studentList1);
-
   const [filters, setFilters] = useState({
     _page: 1,
     _limit: 80,
@@ -31,11 +26,6 @@ function StudentFeature(props) {
   //use Context
   const { currentTheme: theme } = useContext(ThemeContext); //lay key currentTheme de gan bien cho theme
   console.log({ theme });
-
-  useEffect(() => {
-    const action = getStudentList(filters);
-    dispatch(action);
-  }, [dispatch, filters]);
 
   const handleClose = () => {
     setOpen(false);

@@ -1,5 +1,5 @@
 - Redux la thu vien js de quan ly State
-- Duoc dung khi chia se state giua cac trang khac nhau (Global state)
+- Duoc dung khi chia se state giua cac trang khac nhau (Global state), giua component cha con (nested)
 - Han che dung Redux vi Golbal state cang nhe thi app cang nhanh
 
 * React Context API: 
@@ -18,7 +18,9 @@
 + Keywords: Store, State, Action, Reducer, dispatch
 Uni directional dataflow: State -> Action (object it nhat 2 key: type (kieu du lieu string), payload (bat ki kieu du lieu)) -> Store -> Reducer(function) -> New State
     - Action: object
+    - Async action: function (React ko ho tro async action, can cai them Middlewares: Redux - thunk (sd cu phap async await) hoặc Redux - saga (su dung cu phap js generator))
     - Reducer: function
+    
 
 + Action di doi voi Reducer
 
@@ -34,3 +36,28 @@ Uni directional dataflow: State -> Action (object it nhat 2 key: type (kieu du l
     + Setup Provider o main index app: truyen vao 1 cai store la store da tao
 
 * Redux Persist: luu state vao local storage
+
+
+
+
+* LAM VIEC VOI REDUX: can xac dinh:
+- State: xac dinh can luu gia tri gi, kieu du lieu va tai sao phai luu
+- Actions: bao nhieu action, voi action nao thi thay doi state tuong ung
+- Reducer
+
+Example Todo List:
+- State: List, Filter
+- Actions:
+    + List: Add/Edit/Delete
+    + Filter: setFilter
+- Reducer
+
+
+*Tools for redux: https://github.com/zalmoxisus/redux-devtools-extension
+ - Chrome plugin
+ - Redux devtools extension
+
+
+ * Install library:
+ - Redux devtools extension
+ - redux-thunk
