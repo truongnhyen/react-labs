@@ -1,14 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
 import { Button, Container, Typography } from '@material-ui/core';
+import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCart } from './cartSlice';
+import { cartItemsSelector, itemsCountSelector, totalSelector } from './selectors';
 
 CartFeature.propTypes = {};
 
 function CartFeature(props) {
-  const cartItems = useSelector((state) => state.cart.cartItems);
-  const totalAmount = useSelector((state) => state.cart.totalAmount);
+  const cartItems = useSelector(cartItemsSelector); //cartItemsSelector da duoc dinh nghia trong file selectors
+  const totalAmount = useSelector(totalSelector);
+  const itemsCount = useSelector(itemsCountSelector);
 
   const dispatch = useDispatch();
 
@@ -23,7 +24,7 @@ function CartFeature(props) {
     });
     dispatch(action);
   };
-  console.log('Cart Items', cartItems);
+  console.log('Cart Items', itemsCount, cartItems);
   return (
     <Container>
       <Typography variant="h2">Your Cart</Typography>
