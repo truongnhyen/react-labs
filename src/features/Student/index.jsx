@@ -7,6 +7,8 @@ import ThemeContext from 'themeContext';
 import StudentForm from './components/StudentForm';
 import StudentList from './components/StudentList';
 import { getStudentList } from './actions.js';
+import { getRTKStudentList } from './studentSlice';
+import { unwrapResult } from '@reduxjs/toolkit';
 
 function StudentFeature(props) {
   const studentList1 = useSelector((state) => state.students.list);
@@ -35,11 +37,30 @@ function StudentFeature(props) {
   useEffect(() => {
     (async () => {
       try {
-        console.log('Start loading');
+        //console.log('Start loading');
         setLoading(true);
 
         const action = getStudentList(filters);
         await dispatch(action);
+
+        setLoading(false);
+        //console.log('End loading');
+      } catch (error) {
+        console.log('Failed to fetch student list 123456', error);
+      }
+    })();
+  }, [dispatch, filters]);
+
+  useEffect(() => {
+    (async () => {
+      try {
+        console.log('Start loading');
+        setLoading(true);
+
+        const action = getRTKStudentList(filters);
+        const resultAction = await dispatch(action);
+        //dung unwrapresult de catch error
+        unwrapResult(resultAction);
 
         setLoading(false);
         console.log('End loading');

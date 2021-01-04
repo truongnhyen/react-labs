@@ -58,6 +58,14 @@ Example Todo List:
  - Redux devtools extension
 
 
- * Install library:
- - Redux devtools extension
- - redux-thunk
+ * Install library: 1 trong 2
+    1. Redux core:
+    - Redux devtools extension
+    - redux-thunk
+    2. Redux Toolkit: 
+
+
+ * REDUX TOOLKIT:
+ - Đã có sẵn redux dev tool & redux thunk tích hợp
+ - CreateReducer(): immer library: thay doi gia tri truc tiep tu bang draft.
+ - CreateSlice(): chỉ cần khai báo 1 thằng createSlice duy nhất, ko cần phải khai báo action va reducer riêng

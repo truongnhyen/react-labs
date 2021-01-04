@@ -13,6 +13,8 @@ import PostFeature from './features/Post';
 import TodoFeature from './features/Todo';
 import ThemeContext, { themes } from 'themeContext';
 import { useState } from 'react';
+import CounterFeature from 'features/Counter';
+import CartFeature from 'features/Cart';
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState(themes.light);
@@ -32,9 +34,10 @@ function App() {
           <Route path="/rendering" component={RenderingFeature} />
           <Route path="/color-box" component={ColorBox} />
           <Route path="/todos" component={TodoFeature} />
-          <Route path="/todo-list" component={Todo} />
+          <Route path="/counter" component={CounterFeature} />
           <Route path="/students" component={StudentFeature} />
           <Route path="/posts" component={PostFeature} />
+          <Route path="/cart" component={CartFeature} />
           <Route component={NotFound} />
         </Switch>
 
