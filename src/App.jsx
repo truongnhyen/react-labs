@@ -1,21 +1,21 @@
-import { Route, Switch } from 'react-router-dom';
+import PrivateRoute from 'components/PrivateRoute';
+import { useState, lazy, Suspense } from 'react';
+import { Redirect, Route, Switch } from 'react-router-dom';
+import ThemeContext, { themes } from 'themeContext';
 import './App.scss';
 import Header from './components/Header';
-import Timer from './components/Timer';
-import Todo from './components/Todo';
-import ColorBox from './components/ColorBox';
-import HomePage from './features/Home';
-import MagicBoxFeature from './features/MagicBox';
-import RenderingFeature from './features/Rendering';
-import StudentFeature from './features/Student';
 import NotFound from './components/NotFound';
-import PostFeature from './features/Post';
-import TodoFeature from './features/Todo';
-import ThemeContext, { themes } from 'themeContext';
-import { useState } from 'react';
-import CounterFeature from 'features/Counter';
-import CartFeature from 'features/Cart';
-import Countdown from 'features/\bCountdown';
+
+const ColorBox = lazy(() => import('./components/ColorBox'));
+const HomePage = lazy(() => import('./features/Home'));
+const MagicBoxFeature = lazy(() => import('./features/MagicBox'));
+const PostFeature = lazy(() => import('./features/Post'));
+const RenderingFeature = lazy(() => import('./features/Rendering'));
+const StudentFeature = lazy(() => import('./features/Student'));
+const TodoFeature = lazy(() => import('./features/Todo'));
+const Countdown = lazy(() => import('features/\bCountdown'));
+const CartFeature = lazy(() => import('features/Cart'));
+const CounterFeature = lazy(() => import('features/Counter'));
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState(themes.light);
@@ -29,19 +29,21 @@ function App() {
       <Timer seconds={40} /> */}
 
         {/* Routing content */}
-        <Switch>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/magic-box" component={MagicBoxFeature} />
-          <Route path="/rendering" component={RenderingFeature} />
-          <Route path="/color-box" component={ColorBox} />
-          <Route path="/todos" component={TodoFeature} />
-          <Route path="/counter" component={CounterFeature} />
-          <Route path="/students" component={StudentFeature} />
-          <Route path="/posts" component={PostFeature} />
-          <Route path="/cart" component={CartFeature} />
-          <Route path="/countdown" component={Countdown} />
-          <Route component={NotFound} />
-        </Switch>
+        <Suspense fallback={<div>Loading...</div>}>
+          <Switch>
+            <Route exact path="/" component={HomePage} />
+            <PrivateRoute path="/magic-box" component={MagicBoxFeature} />
+            <Route path="/rendering" component={RenderingFeature} />
+            <Route path="/color-box" component={ColorBox} />
+            <Route path="/todos" component={TodoFeature} />
+            <Route path="/counter" component={CounterFeature} />
+            <Route path="/students" component={StudentFeature} />
+            <Route path="/posts" component={PostFeature} />
+            <Route path="/cart" component={CartFeature} />
+            <Route path="/countdown" component={Countdown} />
+            <Route component={NotFound} />
+          </Switch>
+        </Suspense>
 
         <div style={{ textAlign: 'center' }}>Yen Truong</div>
       </ThemeContext.Provider>

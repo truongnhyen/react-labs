@@ -1,0 +1,25 @@
+- Trong trường hợp chỉ load cái cần thiết dùng trên trang
+
+https://reactjs.org/docs/code-splitting.html
+
+- Ket hop giua 'lazy' va 'suspense'
+
+Example:
+Kieu import cu: import OtherComponent from './OtherComponent';
+
+Dung spliting lazy: 
+- import: const OtherComponent = React.lazy(() => import('./OtherComponent'));
+- Component phai nam trong the 'Suspense':
+    function MyComponent() {
+        return (
+            <div>
+            <Suspense fallback={<div>Loading...</div>}>
+                <OtherComponent />
+            </Suspense>
+            </div>
+        );
+    }
+
+
+Lazy load: APP -> Features -> Pages
+Ko can lazy load tu: Pages -> Component

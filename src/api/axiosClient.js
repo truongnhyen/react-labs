@@ -1,11 +1,10 @@
-
 import axios from 'axios';
-import AppConstants from '../constant/appConstant';
 
 const axiosClient = axios.create({
-  baseURL: AppConstants.API_URL,
+  baseURL: process.env.REACT_APP_API_URL,
   headers: {
     'Content-Type': 'application/json',
+    app: 'frontend-ui',
   },
 });
 

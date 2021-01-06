@@ -1,0 +1,10 @@
+https://create-react-app.dev/docs/adding-custom-environment-variables/
+
+- Muon them bien moi truong thi phai co prefix bat dau: REACT_APP_
+- Moi lan thay doi bien moi truong phai start lai app
+- De su dung bien moi truong thi dung ham process: process.env.REACT_APP_API_URL (trong do env la ten file, ke den la bien)
+- Add extension DotENV de highlight
+
++ Tao file: '.env' tai thu muc root
++ Tao bien: bat dau bang REACT_APP_
++ Su dung: process.env.REACT_APP_API_URL (trong do env la ten file, ke den la bien)
