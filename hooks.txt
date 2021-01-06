@@ -1,0 +1,5 @@
+- Chi su dung hooks o top level, dau tien ben duoi ham component, ko su dung trong loop, condition,..
+- Chỉ dùng hooks trong:
+    + functional component
+    + custom hooks
+

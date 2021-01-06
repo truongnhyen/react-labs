@@ -15,6 +15,7 @@ import ThemeContext, { themes } from 'themeContext';
 import { useState } from 'react';
 import CounterFeature from 'features/Counter';
 import CartFeature from 'features/Cart';
+import Countdown from 'features/\bCountdown';
 
 function App() {
   const [currentTheme, setCurrentTheme] = useState(themes.light);
@@ -38,6 +39,7 @@ function App() {
           <Route path="/students" component={StudentFeature} />
           <Route path="/posts" component={PostFeature} />
           <Route path="/cart" component={CartFeature} />
+          <Route path="/countdown" component={Countdown} />
           <Route component={NotFound} />
         </Switch>
 
