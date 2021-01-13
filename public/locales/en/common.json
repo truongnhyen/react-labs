@@ -1,0 +1,10 @@
+{
+    "save": "Save",
+    "next": "Next",
+    "submit": "Submit",
+    "back": "Back",
+    "home": "Home",
+    "hello-world": "Hello World",
+    "hello-someone": "Hi {{name}}",
+    "go-to-homepage": "Go to <1>Homepage</1>. <3/> New line here"
+}
